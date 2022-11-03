@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <div class="container">
+          <h2>LOGO</h2>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% unless customer_signed_in? %>
+
+                <li>
+                <%= link_to about_path, class: "nav-link text-light" do %>
+                <p>About</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_items_path class: "nav-link text-light" do %>
+                <p>商品一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to new_customer_registration_path class: "nav-link text-light" do %>
+                <p>新規登録</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to new_customer_session_path class: "nav-link text-light" do %>
+                <p>ログイン</p>
+                <% end %>
+                </li>
+
+              <% else %>
+
+                <li>
+                <%= link_to admin_items_path, class: "nav-link text-light" do %>
+                <p>商品一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_customers_path, class: "nav-link text-light" do %>
+                <p>会員一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_root_path, class: "nav-link text-light" do %>
+                <p>注文履歴一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_genres_path, class: "nav-link text-light" do %>
+                <p>ジャンル一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to destroy_admin_session_path, class: "nav-link text-light" do %>
+                <p>ログアウト</p>
+                </li>
+                <% end %>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>
