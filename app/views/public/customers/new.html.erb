@@ -1,0 +1,62 @@
+<div class="col-md-7 offset-md-2">
+  <h4>新規会員登録</h4>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-5 col-lg-4 px-8 px-sm-5 mx-auto">
+      <%= form_with model: @@customers, url: admin_items_path do |f| %>
+
+        <div class="form-group">
+          <label for="item_name">氏名</label>
+            (姓)<%= f.string_field :last_name, autofocus: true, id:"name" %>
+            (名)<%= f.string_field :first_name, autofocus: true, id:"name" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">フリガナ</label>
+            (セイ)<%= f.string_field :last_name_kana, autofocus: true, id:"name" %>
+            (メイ)<%= f.string_field :first_name_kana, autofocus: true, id:"name" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">メールアドレス</label>
+            <%= f.string_field :email, autofocus: true, id:"email" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">郵便番号（ハイフンなし）</label>
+            <%= f.string_field :postal_code, autofocus: true, id:"postal" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">住所</label>
+            <%= f.string_field :address, autofocus: true, id:"address" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">電話番号</label>
+            <%= f.string_field :telephone_number, autofocus: true, id:"telephone" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">パスワード（6文字以上）</label>
+            <%= f.integer_field :encrypted_password, autofocus: true, id:"telephone" %>
+        </div>
+
+        <div class="form-group">
+          <label for="item_name">パスワード（確認用）</label>
+            <%= f.integer_field :encrypted_password, autofocus: true, id:"telephone" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "新規登録", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-7 offset-md-2">
+  <h4>既に登録済みの方</h4>
+    <% link_to "こちら" customer_session_path %>
+</div>
+

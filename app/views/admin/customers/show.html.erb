@@ -1,1 +1,64 @@
-<h4>会員詳細</h4>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 offset-md-1">
+      <h4>会員詳細</h4>
+        <table class="table">
+  		    <tbody>
+  		      <tr>
+  		        <p>会員ID</p>
+              <td>
+               <%= @customers.id %>
+                <br>
+              </td>
+
+              <p>氏名</p>
+              <td>
+                <%= @customers.last.name %><%= @customers.first.name %>
+              </td>
+
+              <p>フリガナ</p>
+              <td>
+                <%= @customers.last_name_kana %><%= @customers.first_name_kana %>
+              </td>
+
+              <p>郵便番号</p>
+              <td>
+                <%= @customers.postal_code %>
+              </td>
+
+              <p>住所</p><br>
+              <td>
+                <%= @customers.address %>
+              </td>
+
+              <p>電話番号</p>
+              <td>
+                <%= @customers.telephone_number %>
+              </td>
+              
+              <p>メールアドレス</p>
+              <td>
+                <%= @customers.email %>
+              </td>
+              
+              <p>会員ステータス</p>
+              <td>
+                <%= @customers.is_deleted %>
+              </td>
+              
+              <td>
+                <%= link_to edit_admin_item_path(@customers.id) %>
+                  <div class="btn btn-success">編集する</div>
+              </td>
+              
+              <td>
+                <%= link_to admin_root_path %>
+                  <div class="btn btn-success">注文履歴一覧を見る</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

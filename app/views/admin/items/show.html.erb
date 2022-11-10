@@ -1,3 +1,4 @@
+<p id="notice"></p>
 <div class="col-md-8 offset-md-2">
   <h4>商品詳細</h4>
   <div class="container">
@@ -6,10 +7,7 @@
         <table class="table">
   		    <tbody>
   		      <tr>
-              <td>
-                <%= image_tag @item.get_profile_image(100,100), size: "100x100" %>
-                <br>
-              </td>
+              <%= image_tag @item.get_profile_image(200,100), size: "200x100" %>
 
               <p>商品名</p>
               <td>
@@ -18,24 +16,23 @@
 
               <p>商品説明</p>
               <td>
-                <%= @item.body %>
+                <%= @item.introduction %>
               </td>
 
-              <!--続き-->
               <p>ジャンル</p>
               <td>
-                <%= @genre.name %>
+                <%= @item.genre_id %>
               </td>
 
-              <p>税込価格</p><br>
-              <p>(税抜価格)</p>
+              <p>税込価格<br>
+              (税抜価格)</p>
               <td>
-
+                <%= @item.price %>
               </td>
 
               <p>販売ステータス</p>
               <td>
-
+                <%= @item.is_active %>
               </td>
 
               <td>

@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   }
 
   namespace :public do
+    resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :confirm, :thanks, :create, :index, :show]
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :status]
+    resources :postals, only: [:index, :edit, :create, :update, :destroy]
   end
 
   # 管理者用

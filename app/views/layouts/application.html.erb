@@ -17,34 +17,34 @@
           <h2>LOGO</h2>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <% unless customer_signed_in? %>
-
+              <% if customer_signed_in? %>
+                <!--顧客ログイン時-->
                 <li>
-                <%= link_to about_path, class: "nav-link text-light" do %>
-                <p>About</p>
+                <%= link_to public_customer_path(current_customer), class: "nav-link text-light" do %>
+                <p>マイページ</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to admin_items_path class: "nav-link text-light" do %>
+                <%= link_to public_items_path, class: "nav-link text-light" do %>
                 <p>商品一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to new_customer_registration_path class: "nav-link text-light" do %>
-                <p>新規登録</p>
+                <%= link_to public_cart_items_path, class: "nav-link text-light" do %>
+                <p>カート</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to new_customer_session_path class: "nav-link text-light" do %>
-                <p>ログイン</p>
+                <%= link_to destroy_customer_session_path, class: "nav-link text-light" do %>
+                <p>ログアウト</p>
                 <% end %>
                 </li>
 
-              <% else %>
-
+              <% elsif admin_sign_in? %>
+                <!--管理者がログイン時-->
                 <li>
                 <%= link_to admin_items_path, class: "nav-link text-light" do %>
                 <p>商品一覧</p>
@@ -70,10 +70,36 @@
                 </li>
 
                 <li>
-                <%= link_to destroy_admin_session_path, class: "nav-link text-light" do %>
+                <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
                 <p>ログアウト</p>
                 </li>
                 <% end %>
+
+              <% else %>
+                <!--管理者、顧客共にログアウト時-->
+                <li>
+                <%= link_to about_path, class: "nav-link text-light" do %>
+                <p>About</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_items_path class: "nav-link text-light" do %>
+                <p>商品一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to new_customer_registration_path class: "nav-link text-light" do %>
+                <p>新規登録</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to new_customer_session_path class: "nav-link text-light" do %>
+                <p>ログイン</p>
+                <% end %>
+                </li>
 
               <% end %>
             </ul>

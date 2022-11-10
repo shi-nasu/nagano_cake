@@ -1,3 +1,53 @@
 <h3>マイページ</h3>
 <h4 class="font-weight-normal">登録情報</h4>
 <button type="button" class="btn btn-success">編集する</button>
+  <table>
+    <tr>
+      <th>氏名</th>
+        <td>
+          <%= @customer.last_name %><%= @customer.first_name %>
+        </td>
+    </tr>
+    <tr>
+      <th>カナ</th>
+        <td>
+          <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+        </td>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+        <td>
+          <%= @customer.postal_code %>
+        </td>
+    </tr>
+    <tr>
+      <th>住所</th>
+        <td>
+          <%= @customer.address %>
+        </td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+        <td>
+          <%= @customer.telephone_number %>
+        </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+        <td>
+          <%= @customer.email %>
+        </td>
+    </tr>
+  </table>
+
+  <h4>配送先</h4>
+    <td>
+      <%= link_to public_postals_path %>
+        <div class="btn btn-primary">一覧を見る</div>
+    </td>
+
+  <h4>注文履歴</h4>
+    <td>
+      <%= link_to public_orders_path %>
+        <div class="btn btn-primary">一覧を見る</div>
+    </td>
