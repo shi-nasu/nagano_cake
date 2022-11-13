@@ -12,22 +12,22 @@
       </tr>
     </thead>
     <tbody>
-      <% @homes.each do |home| %>
+      <% @orders.each do |orders| %>
         <tr>
           <td>
-            <%= home.id %>
+            <%= orders.id %>
           </td>
           <td>
-            <%= home.name %>
+            <%= orders.name %>
           </td>
           <td>
-            <%= home.price %>
+            <%= orders.price %>
           </td>
           <td>
-            <%= home.genre_id %>
+            <%= orders.genre_id %>
           </td>
           <td>
-            <%= home.is_active %>
+            <%= orders.is_active %>
           </td>
         </tr>
       <% end %>

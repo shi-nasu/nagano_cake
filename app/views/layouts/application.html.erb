@@ -38,12 +38,13 @@
                 </li>
 
                 <li>
-                <%= link_to destroy_customer_session_path, class: "nav-link text-light" do %>
+                <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
                 <p>ログアウト</p>
                 <% end %>
                 </li>
 
-              <% elsif admin_sign_in? %>
+
+              <% else if admin_signed_in? %>
                 <!--管理者がログイン時-->
                 <li>
                 <%= link_to admin_items_path, class: "nav-link text-light" do %>
@@ -100,6 +101,7 @@
                 <p>ログイン</p>
                 <% end %>
                 </li>
+              <% end %>
 
               <% end %>
             </ul>

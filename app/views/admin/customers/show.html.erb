@@ -14,7 +14,7 @@
 
               <p>氏名</p>
               <td>
-                <%= @customers.last.name %><%= @customers.first.name %>
+                <%= @customers.last_name %><%= @customers.first_name %>
               </td>
 
               <p>フリガナ</p>
@@ -36,25 +36,23 @@
               <td>
                 <%= @customers.telephone_number %>
               </td>
-              
+
               <p>メールアドレス</p>
               <td>
                 <%= @customers.email %>
               </td>
-              
+
               <p>会員ステータス</p>
               <td>
                 <%= @customers.is_deleted %>
               </td>
-              
+
               <td>
-                <%= link_to edit_admin_item_path(@customers.id) %>
-                  <div class="btn btn-success">編集する</div>
+                <%= link_to "編集する", edit_admin_customer_path(@customers.id), class: "btn btn-success" %>
               </td>
-              
+
               <td>
-                <%= link_to admin_root_path %>
-                  <div class="btn btn-success">注文履歴一覧を見る</div>
+                <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-success" %>
               </td>
             </tr>
           </tbody>
