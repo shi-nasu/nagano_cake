@@ -1,46 +1,59 @@
 <p id="notice"></p>
-<div class="col-md-8 offset-md-2">
+<div class="col-md-3 offset-md-2">
   <h4>商品詳細</h4>
+</div>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3 offset-md-2">
+        <%= image_tag @item.get_profile_image(280,150), size: "280x150" %>
+      </div>
+      <div class="col-md-7">
         <table class="table">
   		    <tbody>
   		      <tr>
-              <%= image_tag @item.get_profile_image(200,100), size: "200x100" %>
-
-              <p>商品名</p>
+              <td>商品名</td>
               <td>
                 <%= @item.name %>
               </td>
+            </tr>
 
-              <p>商品説明</p>
+            <tr>
+              <td>商品説明</td>
               <td>
                 <%= @item.introduction %>
               </td>
+            </tr>
 
-              <p>ジャンル</p>
+            <tr>
+              <td>ジャンル</td>
               <td>
                 <%= @item.genre_id %>
               </td>
+            </tr>
 
-              <p>税込価格<br>
-              (税抜価格)</p>
+            <tr>
+              <td>税込価格<br>
+              (税抜価格)</td>
               <td>
                 <%= @item.price %>
               </td>
+            </tr>
 
-              <p>販売ステータス</p>
+            <tr>
+              <td>販売ステータス</td>
               <td>
                 <%= @item.is_active %>
               </td>
+            </tr>
 
+            <tr>
+              <td>
                 <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
+              </td>
+              <td></td>
             </tr>
           </tbody>
         </table>
       </div>
-
     </div>
   </div>
-</div>
