@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :confirm, :thanks, :create, :index, :show]
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :status]
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/edit' => 'customers#edit'
+    patch '/customers' => 'customers#update'
+    get '/customers/unsubscribe' => 'customers#unsubscribe', as: :unsubscribe
     resources :postals, only: [:index, :edit, :create, :update, :destroy]
   end
 
