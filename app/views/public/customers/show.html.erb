@@ -4,7 +4,7 @@
   <div class="row">
     <h4 class="font-weight-normal">登録情報　　</h4>
     <div class="mb-2">
-      <%= link_to "編集する", public_customers_edit_path, class: "btn btn-success" %>
+      <%= link_to "編集する",  customers_information_edit_path, class: "btn btn-success" %>
     </div>
 
       <table class="table table-bordered">
@@ -53,14 +53,14 @@
     <h4>配送先　</h4>
       <div class="col-2">
           <td>
-            <%= link_to "一覧を見る", public_postals_path, class: "btn btn-primary" %>
+            <%= link_to "一覧を見る", postals_path, class: "btn btn-primary" %>
           </td>
       </div>
 
       <h4>注文履歴　</h4>
       <div class="col-2">
           <td>
-            <%= link_to "一覧を見る", public_orders_path, class: "btn btn-primary" %>
+            <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
           </td>
       </div>
   </div>

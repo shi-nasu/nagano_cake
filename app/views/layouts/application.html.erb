@@ -20,19 +20,19 @@
               <% if customer_signed_in? %>
                 <!--顧客ログイン時-->
                 <li>
-                <%= link_to public_customers_my_page_path(current_customer), class: "nav-link text-light" do %>
+                <%= link_to customers_my_page_path(current_customer), class: "nav-link text-light" do %>
                 <p>マイページ</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to public_items_path, class: "nav-link text-light" do %>
+                <%= link_to items_path, class: "nav-link text-light" do %>
                 <p>商品一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to public_cart_items_path, class: "nav-link text-light" do %>
+                <%= link_to cart_items_path, class: "nav-link text-light" do %>
                 <p>カート</p>
                 <% end %>
                 </li>
