@@ -29,6 +29,13 @@ class Public::CustomersController < ApplicationController
     end
   end
 
+  def withdraw
+    @customer = current_customer #定義
+    @customer.update(is_deleted: true) #退会ステータスをtrue
+    reset_session #ログアウトの処理
+    redirect_to root_path #topページに飛ぶ
+  end
+
   private
 
   def customer_params
