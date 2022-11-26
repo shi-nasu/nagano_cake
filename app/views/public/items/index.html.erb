@@ -9,10 +9,10 @@
   		      <tr>
               <td>
                 <%= image_tag item.get_profile_image(100,100), size: "100x100" %><br>
-                <%= item.name %>
+                <%= link_to item.name, item_path(item.id) %>
               </td>
               <td>
-                <%= item.price %>
+                ¥<%= item.price %>
               </td>
             </tr>
             <% end %>
