@@ -6,10 +6,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(amount: params[:cart_item][:amount])
+    redirect_to '/cart_items'
   end
 
   def destroy
-
+    @cart_item = CartItem.find(params[:id])  # データ（レコード）を1件取得
+    @cart_item.destroy  # データ（レコード）を削除
+    redirect_to '/cart_items'  # 投稿一覧画面へリダイレクト
   end
 
   def create
