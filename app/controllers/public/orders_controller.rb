@@ -1,11 +1,11 @@
 class Public::OrdersController < ApplicationController
 
   def confirm
-    @orders = current_customer.cart_items.all
+    @orders = current_customer.orders.all
   end
 
   def index
-    @orders = current_orders.cart_items.all
+    @orders = current_customer.orders.all
   end
 
   def new
@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @orders = current_customer.orders.all
   end
 
   def thanks
