@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :items, only: [:index, :show]
-    resources :orders, only: [:new, :thanks, :create, :index, :show]
+    get 'orders' => 'orders#thanks'
     post 'orders' => 'orders#confirm'
+    resources :orders, only: [:new, :create, :index, :show]
     get '/customers/my_page' => 'customers#show'
     get '/customers/information/edit' => 'customers#edit'
     patch '/customers/update' => 'customers#update'

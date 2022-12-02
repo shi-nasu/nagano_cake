@@ -11,11 +11,15 @@
 
           <P><strong>お届け先</strong></P>
               <input type="radio" name="gender" value="male"/>ご自身の住所</br>
+                <%= current_customer.postal_code %>
+                <%= current_customer.address %>
+                <%= current_customer.last_name %><%= current_customer.first_name %></br>
 
-              <input type="radio" name="gender" value="male"/>登録済み住所から選択</br>
+              <input type="radio" name="gender" value="male"/>登録済み住所から選択
+              <%= form_with model: @order, local: true do |f| %>
+                  <%= f.select :postal, options_from_collection_for_select(Postal.all, :id, :address_display) %></br>
 
               <input type="radio" name="gender" value="male"/>新しいお届け先
-              <%= form_with model: @order, local: true do |f| %>
                 <div class="field">電話番号（ハイフンなし）
                   <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
                 </div>
