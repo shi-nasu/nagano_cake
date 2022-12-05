@@ -1,7 +1,19 @@
 class Public::OrdersController < ApplicationController
 
   def confirm
-    @orders = current_customer.orders.all
+    @order = Order.new(order_params)
+    @order.shipping_cost = 800
+    @cart_items = current_customer.cart_items
+    if params[:order][:address_select] == "0"
+    elsif params[:order][:address_select] == "1"
+      @address = Postal.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:address_select] == "2"
+    end
+    
+    @total = 0
   end
 
   def index
@@ -29,6 +41,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
   end
 end
