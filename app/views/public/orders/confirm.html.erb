@@ -1,5 +1,7 @@
 <p id="notice"></p>
-      <div class="col-md-7 offset-md-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-1">
         <h4>注文情報確認</h4>
         <table class="table table-bordered align="left"">
           <thead>
@@ -18,7 +20,7 @@
                 <%= cart_item.item.name %>
               </td>
               <td>
-                <%= cart_item.item.price %>
+                <%= cart_item.item.with_tax_price %>
               </td>
               <td>
                 <%= cart_item.amount %>
@@ -32,36 +34,35 @@
         </table>
       </div>
         <div class="row">
-        <div class="col-md-3">
-          <table class="table table-bordered">
-            <tbody>
-              <thead>
-                <tr>
-                  <th>送料</th>
-                    <td>
-                      <%= @order.shipping_cost %>
-                    </td>
-                </tr>
-                <tr>
-                  <th>商品合計</th>
-                    <td>
-                      <%= @cart_items.each do |cart_item| %>
-                      <%= @total = @total + cart_item.item.price * cart_item.amount %>
-                      <% end %>
-                    </td>
-                </tr>
-                <tr>
-                  <th>請求金額</th>
-                    <td>
-                      <%= @order.total_payment %>
-                    </td>
-                </tr>
-              </thead>
-            </tbody>
-          </table>
-        </div>
+          <div class="col-md-3 offset-md-8">
+            <table class="table table-bordered">
+              <tbody>
+                <thead>
+                  <tr>
+                    <th>送料</th>
+                      <td>
+                        <%= @order.shipping_cost %>
+                      </td>
+                  </tr>
+                  <tr>
+                    <th>商品合計</th>
+                      <td>
+                        <%= @cart_items.sum(&:subtotal) %>
+                      </td>
+                  </tr>
+                  <tr>
+                    <th>請求金額</th>
+                      <td>
+                        <%= @order.shipping_cost + @cart_items.sum(&:subtotal) %>
+                      </td>
+                  </tr>
+                </thead>
+              </tbody>
+            </table>
+          </div>
         </div>
     </div>
+  </div>
     <h4><strong>支払方法</strong></h4>
     <%= @order.payment_method %></br>
 
@@ -73,5 +74,3 @@
   <div class="center-block">
     <%= link_to "注文を確定する", orders_path, class: "btn btn-success" %>
   </divv>
-
-  </div>
