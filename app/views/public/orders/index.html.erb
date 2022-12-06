@@ -27,7 +27,9 @@
         </tr>
         <tr>
           <td>
-            <%= order.item.name %>
+            <% order.order_details.each do |order_detail| %>
+            <%= order_detail.item.name %>
+            <% end %>
           </td>
         </tr>
         <tr>
@@ -42,7 +44,7 @@
         </tr>
         <tr>
           <td>
-            <%= link_to "表示する", order_path(orders.id), class: "btn btn-primary" %>
+            <%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %>
           </td>
         </tr>
       <% end %>

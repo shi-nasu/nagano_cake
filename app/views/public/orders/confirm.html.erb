@@ -63,14 +63,22 @@
         </div>
     </div>
   </div>
-    <h4><strong>支払方法</strong></h4>
-    <%= @order.payment_method %></br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-1">
+        <h4><strong>支払方法</strong></h4>
+        <%= @order.payment_method %>
 
-    <h4><strong>お届け先</strong></h4>
-    <%= current_customer.postal_code %>
-    <%= current_customer.address %>
-    <%= current_customer.last_name %><%= current_customer.first_name %></br>
-
-  <div class="center-block">
-    <%= link_to "注文を確定する", orders_path, class: "btn btn-success" %>
-  </divv>
+        <h4><strong>お届け先</strong></h4>
+        <%= current_customer.postal_code %>
+        <%= current_customer.address %>
+        <%= current_customer.last_name %><%= current_customer.first_name %>
+      </div>
+    </div>
+  </div>
+      <div class="text-center">
+        <% form_with model: @order, orders_thanks_path, local: true do |f| %>
+          <%= f.submit "注文を確定する", class: "btn btn-success" %>
+          <%= f.hidden_field :user_id, :value => @order.id %>
+        <% end %>
+      </div>

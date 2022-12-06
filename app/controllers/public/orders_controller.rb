@@ -12,12 +12,12 @@ class Public::OrdersController < ApplicationController
       @order.name = @address.name
     elsif params[:order][:address_select] == "2"
     end
-    
+
     @total = 0
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders = Order.all
   end
 
   def new
@@ -35,7 +35,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
-    redirect_to "/orders/confirm"
+    redirect_to "/orders/thanks"
   end
 
   private
