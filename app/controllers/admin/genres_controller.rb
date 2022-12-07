@@ -33,6 +33,6 @@ class Admin::GenresController < ApplicationController
   private
   # ストロングパラメータ
   def genre_params
-    params.require(:genre).permit(:genre_name)
+    params.require(:genre).permit(:name)
   end
 end
