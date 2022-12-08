@@ -14,7 +14,7 @@
               </tr>
             </thead>
           <tbody>
-            <% @orders.each do |order| %>
+            <% @order.each do |order| %>
             <tr>
               <td>
                 <%= order.created_at %>
@@ -39,31 +39,23 @@
         <div class="col-md-8 offset-md-1">
           <table class="table table-bordered">
             <p>請求情報</p>
-              <thead>
-                <tr>
-                  <th>商品合計</th>
-                  <tr>配送料</tr>
-                  <th>ご請求額</th>
-                </tr>
-              </thead>
             <tbody>
-              <% @orders.each do |order| %>
               <tr>
-                <td>
-                  <%= order.cart_item.amount*order.item.price %>
-                </td>
+                <th>商品合計</th>
+                  <td>
+                    <%= @cart_items.sum(&:subtotal) %>
+                  </td>
+
+                <tr>配送料</tr>
+                  <td>
+                    <%= @order.shipping_cost %>
+                  </td>
+
+                <th>請求金額</th>
+                  <td>
+                    <%= @order.shipping_cost + @cart_items.sum(&:subtotal) %>
+                  </td>
               </tr>
-              <tr>
-                <td>
-                  <%= order.shipping_cost %>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <%= order.total_payment %>
-                </td>
-              </tr>
-              <% end %>
             </tbody>
           </table>
         </div>
@@ -79,25 +71,19 @@
               </tr>
             </thead>
             <tbody>
-              <% @orders.each do |order| %>
+              <% @cart_items.each do |cart_item| %>
               <tr>
                 <td>
-                  <%= order.item.name %>
+                  <%= cart_item.item.name %>
                 </td>
-              </tr>
-              <tr>
                 <td>
-                  <%= order.item.price %>
+                  <%= cart_item.item.price %>
                 </td>
-              </tr>
-              <tr>
                 <td>
-                  <%= order.cart_item.amount %>
+                  <%= cart_item.amount %>
                 </td>
-              </tr>
-              <tr>
                 <td>
-                  <%= order.cart_item.amount*order.item.price %>
+                  <%= cart_item.amount*cart_item.item.with_tax_price %>
                 </td>
               </tr>
               <% end %>

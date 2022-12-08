@@ -28,7 +28,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @orders = current_customer.orders.all
+    @order = Order.new(order_params)
+    @order.shipping_cost = 800
+    @cart_items = current_customer.cart_items
   end
 
   def thanks
