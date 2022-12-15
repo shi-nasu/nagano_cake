@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  # 管理者用
+  # URL /admin/sign_in ...
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  }
+
   root to: 'public/homes#top'
   get "home/about" => "public/homes#about", as: "about"
 
@@ -23,12 +29,6 @@ Rails.application.routes.draw do
     patch '/customers/withdraw' => 'customers#withdraw', as: :withdrawal
     resources :postals, only: [:index, :edit, :create, :update, :destroy]
   end
-
-  # 管理者用
-  # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
-  }
 
   get 'items/new'
   post 'items' => 'items#create'

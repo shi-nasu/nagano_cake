@@ -12,22 +12,19 @@
       </tr>
     </thead>
     <tbody>
-      <% @orders.each do |orders| %>
+      <% @orders.each do |order| %>
         <tr>
           <td>
-            <%= orders.id %>
+            <%= l order.created_at %>
           </td>
           <td>
-            <%= orders.name %>
+            <%= order.name %>
           </td>
           <td>
-            <%= orders.price %>
+            <%= order.order_details.sum(&:amount) %>
           </td>
           <td>
-            <%= orders.genre_id %>
-          </td>
-          <td>
-            <%= orders.is_active %>
+            <%= order.status_i18n %>
           </td>
         </tr>
       <% end %>
