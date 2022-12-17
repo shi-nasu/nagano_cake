@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
+    delete '/cart_items/all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :items, only: [:index, :show]
     post '/orders/confirm' => 'orders#confirm'

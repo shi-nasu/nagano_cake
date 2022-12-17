@@ -17,6 +17,12 @@ class Public::CartItemsController < ApplicationController
     redirect_to '/cart_items'  # 投稿一覧画面へリダイレクト
   end
 
+  def destroy_all
+    @cart_item = current_customer
+    @cart_item.destroy
+    redirect_to '/cart_items'
+  end
+
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
