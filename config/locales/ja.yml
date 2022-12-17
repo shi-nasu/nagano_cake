@@ -10,6 +10,12 @@ ja:
         production: "製作中"
         preparation: "発送準備中"
         shipped: "発送済み"
+    order_detail:
+      making_status:
+        cannot_manufactured: "製作不可"
+        waiting_production: "製作待ち"
+        production: "製作中"
+        completion_production: "製作完了"
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

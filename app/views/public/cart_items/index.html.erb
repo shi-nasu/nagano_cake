@@ -32,7 +32,6 @@
               <td>
                 <%= cart_item.amount*cart_item.item.with_tax_price %>
               </td>
-
               <td>
                 <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %>
               </td>
@@ -40,7 +39,7 @@
             <% end %>
           </tbody>
         </table>
-            <%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
+            <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
         <table class="table table-bordered">
           <thead>
             <tr>
