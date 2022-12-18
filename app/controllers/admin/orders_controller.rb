@@ -5,4 +5,10 @@ class Admin::OrdersController < ApplicationController
 
   def update
   end
+
+  private
+
+  # def order_params
+  #   params.require(:order).permit(:id, :payment)
+  # end
 end
