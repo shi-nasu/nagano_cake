@@ -30,8 +30,8 @@
         <tr>
           <th>注文ステータス</th>
             <td>
-              <%= form_with model: @order, local: true do |f| %>
-                <%= f.select :created_at, options_from_collection_for_select(Genre.all, :id, :payment) %>
+              <%= form_with model: @order do |f| %>
+              <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
               <% end %>
             </td>
         </tr>

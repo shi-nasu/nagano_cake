@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     if resource == :admin
       new_admin_session_path
+    elsif resource == :customer #　ログアウトの際、customerのtopページに遷移する記述
+      root_path
     end
   end
 

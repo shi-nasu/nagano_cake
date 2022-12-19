@@ -25,6 +25,10 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @cart_items = current_customer.cart_items
+    if @cart_items.empty? #　空ですか？（emptyは入れ物が必要）
+      redirect_to cart_items_path
+    end
   end
 
   def show
@@ -46,7 +50,7 @@ class Public::OrdersController < ApplicationController
           item_id:cart_item.item_id,
           price:300,#:cart_item.price/cart_item.amount,
           amount:cart_item.amount,
-          making_status:"0")
+          making_status:0)
       end
       current_customer.cart_items.destroy_all
     end

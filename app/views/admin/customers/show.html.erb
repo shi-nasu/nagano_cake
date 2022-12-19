@@ -6,46 +6,54 @@
         <table class="table">
   		    <tbody>
   		      <tr>
-  		        <p>会員ID</p>
+  		        <th>会員ID</th>
               <td>
                <%= @customers.id %>
                 <br>
               </td>
-
-              <p>氏名</p>
+            </tr>
+            <tr>
+              <th>氏名</th>
               <td>
                 <%= @customers.last_name %><%= @customers.first_name %>
               </td>
-
-              <p>フリガナ</p>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
               <td>
                 <%= @customers.last_name_kana %><%= @customers.first_name_kana %>
               </td>
-
-              <p>郵便番号</p>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
               <td>
                 <%= @customers.postal_code %>
               </td>
-
-              <p>住所</p><br>
+            </tr>
+            <tr>
+              <th>住所</th><br>
               <td>
                 <%= @customers.address %>
               </td>
-
-              <p>電話番号</p>
+            </tr>
+            <tr>
+              <th>電話番号</th>
               <td>
                 <%= @customers.telephone_number %>
               </td>
-
-              <p>メールアドレス</p>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
               <td>
                 <%= @customers.email %>
               </td>
-
-              <p>会員ステータス</p>
+            </tr>
+            <tr>
+              <th>会員ステータス</th>
               <td>
                 <%= @customers.is_deleted %>
               </td>
+            </tr>
 
               <td>
                 <%= link_to "編集する", edit_admin_customer_path(@customers.id), class: "btn btn-success" %>

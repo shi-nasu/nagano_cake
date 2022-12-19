@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
   def update
   end
 
-  private
+  #private
 
   # def order_params
   #   params.require(:order).permit(:id, :payment)
