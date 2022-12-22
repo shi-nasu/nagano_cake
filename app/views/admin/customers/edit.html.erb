@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h4>会員情報編集</h4>
-        <%= form_with model: @customers do |f| %>
+        <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
           <div class="form-group">
             <label for="customers_name">氏名</label>
               (姓)<%= f.text_field :last_name, autofocus: true, id:"name" %>
@@ -37,8 +37,8 @@
 
           <div class="form-group">
             <label for="item_status">会員ステータス</label>
-              <%= f.radio_button :status, true %>有効
-              <%= f.radio_button :status, false %>退会</br>
+              <%= f.radio_button :is_deleted, true %>有効
+              <%= f.radio_button :is_deleted, false %>退会</br>
           </div>
 
           <div class="form-group">
