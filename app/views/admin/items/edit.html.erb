@@ -5,11 +5,11 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-5 col-lg-4 px-8 px-sm-5 mx-auto">
-          <%= form_with model: @item do |f| %>
+          <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
 
             <div class="form-group">
               <label for="item_image">商品画像</label>
-              <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+              <%= f.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %>
             </div>
 
             <div class="form-group">
@@ -24,7 +24,7 @@
 
             <div class="form-group">
               <label for="item_genre">ジャンル</label>
-              <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %>
+              <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
             </div>
 
             <div class="form-group">
@@ -34,10 +34,8 @@
 
             <div class="form-group">
               <label for="item_status">販売ステータス</label>
-                <%= f.check_box :status, autofocus: true, id:"status" %>
-                <%= label_tag :test1, "販売中" %>
-                <%= f.check_box :status, autofocus: true, id:"status" %>
-                <%= label_tag :test1, "販売停止中" %>
+                <%= f.radio_button :is_active, true %>販売中
+                <%= f.radio_button :is_active, false %>販売停止中</br>
             </div>
 
             <div class="form-group">
