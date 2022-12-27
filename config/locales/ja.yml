@@ -16,6 +16,10 @@ ja:
         waiting_production: "製作待ち"
         production: "製作中"
         completion_production: "製作完了"
+    customer:
+      is_deleted:
+        false: "有効"
+        true: "退会"
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
